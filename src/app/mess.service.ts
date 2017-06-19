@@ -14,6 +14,10 @@ export class MessService {
     return this.messes;
   }
 
+  addMess(newMess: Mess) {
+    this.messes.push(newMess);
+  }
+
   getMessesbyId(id){
     return this.database.object('/messes/' + id);
   }

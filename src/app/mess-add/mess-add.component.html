@@ -1,3 +1,39 @@
-<p>
-  mess-add works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add New Mess</h3>
+  </div>
+  <br>
+  <div class="panel-body">
+    <div>
+      <div>
+        <label>Mess Location:</label>
+        <br>
+        <input #newLocation>
+      </div>
+
+      <div>
+        <label>Image:</label>
+        <br>
+        <input #newImage>
+      </div>
+
+      <div>
+        <label>Completion Time:</label>
+        <br>
+        <input #newTime>
+      </div>
+      <div>
+        <label>Date:</label>
+        <br>
+        <input #newDate>
+      </div>
+      <div>
+        <label>Your Name:</label>
+        <br>
+        <input #newName>
+      </div>
+      <br>
+      <button class="btn btn-info"(click)="submitForm(newLocation.value, newImage.value, newTime.value, newDate.value, newName.value); newLocation.value=''; newImage.value=''; newTime.value=''; newDate.value=''; newName.value=''">Add</button>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,6 @@ export class Mess {
   public image: string,
   public completionTime: string,
   public date: string,
-  public name: string,
-  public id: string
+  public name: string
 ) { }
 };
