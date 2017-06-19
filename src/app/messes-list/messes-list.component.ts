@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Mess } from '../mess.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MessService } from '../mess.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-messes-list',
@@ -7,13 +10,15 @@ import { Mess } from '../mess.model';
   styleUrls: ['./messes-list.component.css']
 })
 export class MessesListComponent implements OnInit {
+ messes: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
 
   ngOnInit() {
+    this.messes = this.messService.getMesses();
   }
-  messes: Mess[] = [
-      new Mess('seattle','http://content.animalnewyork.com/wp-content/uploads/trash_1120_14.jpg', '1 hour', '6/19/17', 'Leonard'),
-      new Mess('seattle','http://mediad.publicbroadcasting.net/p/ksor/files/styles/medium/public/201610/trash_to_treasure_washed_ashore.png', '1/2 hour', '6/19/17', 'Petunia')
-  ];
+
+  renderDetail(clickedMess){
+    this.router.navigate(['messes', clickedMess.$key]);
+  }
 }
