@@ -10,7 +10,13 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./messes-list.component.css']
 })
 export class MessesListComponent implements OnInit {
- messes: FirebaseListObservable<any[]>;
+  messes: FirebaseListObservable<any[]>;
+  zoom: number = 12;
+  lat: number = 47.6062;
+  lng: number = -122.3321;
+  result: any;
+  inputtedLat: any;
+  inputtedLng: any;
 
   constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
 
@@ -21,4 +27,13 @@ export class MessesListComponent implements OnInit {
   renderDetail(clickedMess){
     this.router.navigate(['messes', clickedMess.$key]);
   }
+
+}
+
+// Marker Type
+interface marker {
+  name?: string;
+  lat: number;
+  lng: number;
+  draggable: boolean;
 }

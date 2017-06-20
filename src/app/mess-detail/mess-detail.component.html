@@ -1,11 +1,38 @@
-<h3>{{mess.location}}</h3>
-<br>
-<h3><img src="{{mess.image}}" alt="trash" style="width:300px;" />
-{{mess.completionTime}}
-<br>
-{{mess.date}}
-<br>
-{{mess.name}}</h3>
-<hr>
+<div class='row'>
+  <div class='col-md-4'>
+    <h3>{{(mess)?.location}}</h3>
+    <br>
+    <h3><img src="{{(mess)?.image}}" alt="trash" style="width:300px;" />
+    {{(mess)?.completionTime}}
+    <br>
+    {{(mess)?.date}}
+    <br>
+    {{(mess)?.name}}</h3>
+    <hr>
 
-<a class="btn btn-success" [routerLink]="['/messes/'+ mess.$key + '/meetup-form']">Make a Meetup!</a>
+    <a class="btn btn-success" [routerLink]="['/messes/'+ (mess)?.$key + '/meetup-form']">Make a Meetup!</a>
+  </div>
+
+  <div class='col-md-8'>
+    <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]='zoom'
+    [disableDefaultUI]=false
+    [zoomControl]='false'
+    (mapClick)='mapClicked($event)'>
+
+      <agm-marker *ngFor='let m of markers; let i = index'
+      (markerClick)='clickedMarker(m, i)'
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [markerDraggable]='m.draggable'
+      (dragEnd)='markerDragEnd(m, $event)'>
+
+      <agm-info-window><strong>{{m.name}}</strong></agm-info-window>
+
+      </agm-marker>
+    </agm-map>
+  </div><!-- map column -->
+
+</div><!-- row -->
