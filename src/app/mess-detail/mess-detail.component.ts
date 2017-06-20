@@ -20,7 +20,7 @@ export class MessDetailComponent implements OnInit {
   location: any;
   messLat: any;
   messLng: any;
-  markers: marker[] = [];
+  marker: marker;
 
   constructor(
     private router: Router,
@@ -38,7 +38,6 @@ export class MessDetailComponent implements OnInit {
       this.geolocationService.insertLocation(this.location).subscribe(response => {
         this.messLat = response.results[0].geometry.location.lat;
         this.messLng = response.results[0].geometry.location.lng;
-        console.log('messLat', this.messLat);
 
         var newMarker = {
           name: this.mess.name,
@@ -46,10 +45,7 @@ export class MessDetailComponent implements OnInit {
           lng: this.messLng,
           draggable: false
         }
-        console.log('newMarker', newMarker)
-        this.markers.push(newMarker);
-        console.log('markers', this.markers)
-        // this.marker = newMarker;
+        this.marker = newMarker;
       });
     });
   }

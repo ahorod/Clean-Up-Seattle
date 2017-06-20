@@ -3,11 +3,11 @@
     <h3>{{(mess)?.location}}</h3>
     <br>
     <h3><img src="{{(mess)?.image}}" alt="trash" style="width:300px;" />
-    {{(mess)?.completionTime}}
+    Hours to complete: {{(mess)?.completionTime}}
     <br>
-    {{(mess)?.date}}
+    Date: {{(mess)?.date}}
     <br>
-    {{(mess)?.name}}</h3>
+    Submitted by: {{(mess)?.name}}</h3>
     <hr>
 
     <a class="btn btn-success" [routerLink]="['/messes/'+ (mess)?.$key + '/meetup-form']">Make a Meetup!</a>
@@ -19,17 +19,12 @@
     [longitude]="lng"
     [zoom]='zoom'
     [disableDefaultUI]=false
-    [zoomControl]='false'
-    (mapClick)='mapClicked($event)'>
+    [zoomControl]='false'>
 
-      <agm-marker *ngFor='let m of markers; let i = index'
-      (markerClick)='clickedMarker(m, i)'
-      [latitude]="m.lat"
-      [longitude]="m.lng"
-      [markerDraggable]='m.draggable'
-      (dragEnd)='markerDragEnd(m, $event)'>
-
-      <agm-info-window><strong>{{m.name}}</strong></agm-info-window>
+      <agm-marker
+      [latitude]="(marker)?.lat"
+      [longitude]="(marker)?.lng"
+      [markerDraggable]='(marker)?.draggable'>
 
       </agm-marker>
     </agm-map>
