@@ -1,10 +1,14 @@
 <div class='row'>
   <div class='col-md-4'>
-    <div *ngFor="let mess of messes | async" (click)="renderDetail(mess)">
-      <h3><em>{{(mess)?.location}}</em> by {{(mess)?.name}}</h3>
-      <!-- <h4>meetup {{(mess)?.meetups.location}}</h4> -->
+    <div class="card card-style">
+      <div *ngFor="let mess of messes | async" (click)="renderDetail(mess)">
+          <div class="card-block">
+            <h4 class="card-title"> {{(mess)?.location}}by {{(mess)?.completionTime}}</h4>
+            <p class="card-text">- {{(mess)?.name}} <em>{{(mess)?.date}}</em></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
   <div class='col-md-8'>
     <agm-map
@@ -25,4 +29,4 @@
     </agm-map>
   </div><!-- map column -->
 
-</div><!-- row -->
+</div>
