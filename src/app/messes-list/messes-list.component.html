@@ -1,6 +1,5 @@
-<p>
-  messes-list works!
-</p>
+
 <div *ngFor="let mess of messes | async" (click)="renderDetail(mess)">
     <h3><em>{{mess.location}}</em> by {{mess.name}}</h3>
+    <h4>meetup {{mess.meetups.location}}</h4>
 </div>

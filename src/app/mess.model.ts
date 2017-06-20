@@ -1,3 +1,6 @@
+import { Meetup } from "./meetup.model";
+
+
 export class Mess {
 
   constructor (
@@ -5,6 +8,6 @@ export class Mess {
   public image: string,
   public completionTime: string,
   public date: string,
-  public name: string,
+  public name: string
 ) { }
 };

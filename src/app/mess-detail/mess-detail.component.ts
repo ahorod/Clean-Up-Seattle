@@ -16,13 +16,12 @@ export class MessDetailComponent implements OnInit {
 
   ngOnInit() {
     this.messId = this.route.snapshot.params['id'];
+    console.log(this.messId);
     this.messService.getMessesbyId(this.messId).subscribe(messFB =>{
       this.mess = messFB;
+      console.log(this.mess);
     });
   }
-  // toMeetupForm(selectedMess){
-  //
-  //   this.router.navigate(['messes/:id/meetup-form',selectedMess.$key]);
-  // };
+
 
 }

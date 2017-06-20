@@ -1,0 +1,24 @@
+import { Component, OnInit } from '@angular/core';
+import { Mess } from '../mess.model';
+import { Meetup } from '../meetup.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MessService } from '../mess.service';
+import { FirebaseListObservable } from 'angularfire2/database';
+
+
+@Component({
+  selector: 'app-meetup-list',
+  templateUrl: './meetup-list.component.html',
+  styleUrls: ['./meetup-list.component.css']
+})
+export class MeetupListComponent implements OnInit {
+  messes: FirebaseListObservable<any[]>;
+  meetups: FirebaseListObservable<any[]>;
+
+  constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
+
+  ngOnInit() {
+    this.meetups = this.messService.getMesses();
+  }
+
+}
