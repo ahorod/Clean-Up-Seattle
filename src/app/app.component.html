@@ -20,10 +20,18 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/about">About</a>
       </li>
+      <li class="nav-item" *ngIf='!(user | async)?.uid'>
+        <button (click)="login()">Login</button>
+      </li>
+      <li class="nav-item" *ngIf='(user | async)?.uid'>
+        <button (click)="logout()">Logout</button>
+      </li>
+      <li *ngIf='(user | async)?.uid'>
+        <p>Hello, {{userName}}!</p>
+      </li>
     </ul>
   </div>
 </nav>
-
 
 <div class="container">
   <h1>{{title}}</h1>

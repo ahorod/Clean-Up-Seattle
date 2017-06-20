@@ -1,3 +1,7 @@
 h1{
   background-color: green;
 }
+
+#login-buttons {
+  float: right;
+}

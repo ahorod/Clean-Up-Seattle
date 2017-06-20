@@ -18,6 +18,7 @@ import { MeetupListComponent } from './meetup-list/meetup-list.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { MessService } from './mess.service';
 import { GeolocationService } from './geolocation.service'
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyCWlu9d_33gpEvNB6FdA3G08ZjrQYi4ets'
     }),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     MessService,
