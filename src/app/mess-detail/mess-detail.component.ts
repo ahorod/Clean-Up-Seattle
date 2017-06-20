@@ -20,5 +20,9 @@ export class MessDetailComponent implements OnInit {
       this.mess = messFB;
     });
   }
+  // toMeetupForm(selectedMess){
+  //
+  //   this.router.navigate(['messes/:id/meetup-form',selectedMess.$key]);
+  // };
 
 }

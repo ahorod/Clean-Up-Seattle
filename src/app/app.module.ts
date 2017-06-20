@@ -12,6 +12,7 @@ import { MessesListComponent } from './messes-list/messes-list.component';
 import { AboutComponent } from './about/about.component';
 import { MessAddComponent } from './mess-add/mess-add.component';
 import { MessDetailComponent } from './mess-detail/mess-detail.component';
+import { MeetupFormComponent } from './meetup-form/meetup-form.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -35,6 +36,9 @@ const appRoutes: Routes = [
   },{
     path: 'mess-add',
     component: MessAddComponent
+  },{
+    path: 'messes/:id/meetup-form',
+    component: MeetupFormComponent
   }
 
 ];
@@ -47,7 +51,8 @@ const appRoutes: Routes = [
     MessesListComponent,
     AboutComponent,
     MessAddComponent,
-    MessDetailComponent
+    MessDetailComponent,
+    MeetupFormComponent
 
     ],
   imports: [

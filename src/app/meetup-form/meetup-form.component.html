@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add New Meetup</h3>
+  </div>
+  <br>
+  <div class="panel-body">
+    <div>
+      <div>
+        <label>Meetup Location:</label>
+        <br>
+        <input #newLocation>
+      </div>
+
+      <div>
+        <label>Time:</label>
+        <br>
+        <input #newTime>
+      </div>
+
+      <div>
+        <label>Date:</label>
+        <br>
+        <input #newDate>
+      </div>
+
+      <br>
+      <button class="btn btn-info"(click)="submitForm(newLocation.value, newTime.value, newDate.value); newLocation.value='';  newTime.value=''; newDate.value='';">Add</button>
+    </div>
+  </div>
+</div>
