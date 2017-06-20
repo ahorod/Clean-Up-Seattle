@@ -18,12 +18,14 @@
         "completionTime": "2h",
         "date": "6/14/2017",
         "name": "Fox",
-        "id": "3"
-  }],
-  "meetups": [{
-    "location": "80th and 15th st",
-    "time": "2:00PM",
-    "date": "3/30/2017",
-    "messId": "2"
-    }]
+        "id": "3",
+        "meetups": [{
+          "location": "80th and 15th st",
+          "time": "2:00PM",
+          "date": "3/30/2017",
+          "messId": "3"
+          }]
+
+  }]
+
 }

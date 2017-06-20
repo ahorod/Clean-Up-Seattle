@@ -6,11 +6,9 @@ import { Meetup } from './meetup.model';
 @Injectable()
 export class MessService {
   messes: FirebaseListObservable<any[]>;
-  meetups: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
     this.messes = database.list('messes');
-    this.meetups = database.list('meetups');
   }
 
   getMesses() {
@@ -24,7 +22,6 @@ export class MessService {
   getMessesbyId(id){
     return this.database.object('/messes/' + id);
   }
-  addMeetup(newMeetup: Meetup) {
-    this.meetups.push(newMeetup);
-  }
+
+
   }

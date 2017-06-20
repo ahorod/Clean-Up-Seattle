@@ -1,7 +1,8 @@
 <div class='row'>
   <div class='col-md-4'>
     <div *ngFor="let mess of messes | async" (click)="renderDetail(mess)">
-        <h3><em>{{mess.location}}</em> by {{mess.name}}</h3>
+      <h3><em>{{(mess)?.location}}</em> by {{(mess)?.name}}</h3>
+      <!-- <h4>meetup {{(mess)?.meetups.location}}</h4> -->
     </div>
   </div>
 
