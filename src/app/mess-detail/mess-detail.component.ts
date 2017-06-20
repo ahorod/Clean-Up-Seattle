@@ -14,9 +14,7 @@ import { GeolocationService } from '../geolocation.service';
 export class MessDetailComponent implements OnInit {
   messId: string;
   mess: any;
-  zoom: number = 13;
-  lat: number = 47.6062;
-  lng: number = -122.3321;
+  zoom: number = 15;
   location: any;
   messLat: any;
   messLng: any;
