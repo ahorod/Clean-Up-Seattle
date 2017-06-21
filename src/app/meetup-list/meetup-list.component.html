@@ -1,6 +1,6 @@
 
 <app-navbar></app-navbar>
-<div *ngFor="let meetup of meetups | async">
+<div *ngFor="let meetup of meetups">
     <h3><em>{{meetup.location}}</em>{{meetup.time}}{{meetup.date}}</h3>
     <!-- <app-update-meetups [selectedMeetup]='meetup'></app-update-meetups> -->
     <div>
