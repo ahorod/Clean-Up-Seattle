@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   { path: 'messes/:id', component: MessDetailComponent },
   { path: 'mess-add', component: MessAddComponent },
   { path: 'messes/:id/meetup-form', component: MeetupFormComponent },
-  { path: 'meetups', component: MeetupListComponent }
+  { path: 'meetups', component: MeetupListComponent },
 ];
 
 @NgModule({

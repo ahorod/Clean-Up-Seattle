@@ -19,6 +19,7 @@ export class MessDetailComponent implements OnInit {
   messLat: any;
   messLng: any;
   marker: marker;
+  meetups;
 
   constructor(
     private router: Router,
