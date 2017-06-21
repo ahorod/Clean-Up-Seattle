@@ -26,10 +26,11 @@ import { UserService } from './user.service';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: WelcomeComponent },
   { path: 'messes-list',component: MessesListComponent },
   { path: 'about', component: AboutComponent },
   { path: 'messes/:id', component: MessDetailComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     MeetupFormComponent,
     MeetupListComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+/** {
+  border: 1px solid;
+}*/
+
+
+.welcome-page {
+  height: 100%;
+  width: 100%;
+  background-image: url('/assets/img/cover1.jpg');
+  background-size: cover;
+  background-position: center center;;
+
+}
+
+.welcome-cover {
+  width: 1800px;
+  height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.welcome-caption {
+  padding: 4rem 5rem;
+  background-color: rgba(0,0,0,0.5)
+}
+
+.welcome-cover h1 {
+  font-size: 5rem;
+  color: white;
+}
+
+.welcome-cover a:hover {
+  text-decoration: none;
+}
