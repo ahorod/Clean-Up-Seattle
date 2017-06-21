@@ -14,6 +14,7 @@ export class MeetupFormComponent implements OnInit {
   messId: string;
   mess;
   meetups: FirebaseListObservable<any[]>;
+  messLocation:any;
 
   constructor(private database: AngularFireDatabase, private router: Router, private route: ActivatedRoute, private messService: MessService) { }
 
@@ -21,11 +22,11 @@ export class MeetupFormComponent implements OnInit {
     this.messId = this.route.snapshot.params['id'];
     this.messService.getMessesbyId(this.messId).subscribe(messFB =>{
       this.mess = messFB;
-
+      this.messLocation = messFB.location;
     });
   }
   submitForm(location: string, time: string, date: string){
-    var newMeetup: Meetup = new Meetup(location, time, date);
+    var newMeetup: Meetup = new Meetup(location, time, date, this.messId, this.messLocation);
     var savedMeetup = this.messService.addMeetup(newMeetup);
     this.meetups = this.database.list('/messes/' + this.messId + '/meetups');
      this.meetups.push(savedMeetup);

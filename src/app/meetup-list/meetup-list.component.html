@@ -1,6 +1,45 @@
 
 <app-navbar></app-navbar>
-<div *ngFor="let meetup of meetups | async">
+
+<div class="meetup-list">
+  <div class="meetup-list-head">
+    <h1>Current MeetUp Schedule</h1>
+  </div>
+  <div class="meetup-list-body">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Mess Spot</th>
+              <th>Meetup Location</th>
+              <th>Meetup Date</th>
+              <th>Meetup Time</th>
+              <th>Edit Meetup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let meetup of meetups">
+              <th scope="row">1</th>
+              <td>{{meetup.messLocation}}</td>
+              <td>{{meetup.location}}</td>
+              <td>{{meetup.date}}</td>
+              <td>{{meetup.time}}</td>
+              <td>
+                <a role="button">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let meetup of meetups">
     <h3><em>{{meetup.location}}</em>{{meetup.time}}{{meetup.date}}</h3>
     <!-- <app-update-meetups [selectedMeetup]='meetup'></app-update-meetups> -->
     <div>
