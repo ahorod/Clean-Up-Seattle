@@ -47,7 +47,6 @@ export class MessDetailComponent implements OnInit {
         this.marker = newMarker;
       });
     });
-    this.meetups = this.mess.meetups;
   }
 
   // toMeetupForm(selectedMess){
