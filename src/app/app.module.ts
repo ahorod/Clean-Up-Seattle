@@ -21,7 +21,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { MessService } from './mess.service';
-import { GeolocationService } from './geolocation.service'
+import { GeolocationService } from './geolocation.service';
+import { UserService } from './user.service';
 
 const appRoutes: Routes = [
   {
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     MessService,
-    GeolocationService
+    GeolocationService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

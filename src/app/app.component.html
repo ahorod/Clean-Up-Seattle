@@ -29,9 +29,10 @@
       <li class="nav-item" *ngIf='(user | async)?.uid'>
         <button (click)="logout()">Logout</button>
       </li>
-      <li *ngIf='(user | async)?.uid'>
+      <!-- <li *ngIf='(user | async)?.uid'>
         <p>Hello, {{userName}}!</p>
-      </li>
+      </li> -->
+      {{(user | async)?.uid}}
     </ul>
   </div>
 </nav>

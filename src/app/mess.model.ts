@@ -1,6 +1,5 @@
 import { Meetup } from "./meetup.model";
 
-
 export class Mess {
 
   constructor (
