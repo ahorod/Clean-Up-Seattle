@@ -16,7 +16,6 @@ export class MeetupListComponent implements OnInit {
   messes: FirebaseListObservable<any[]>;
   meetups;
 
-
   constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
 
   ngOnInit() {
