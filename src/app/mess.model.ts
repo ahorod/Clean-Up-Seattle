@@ -1,5 +1,4 @@
-import { Meetup } from "./meetup.model";
-
+import { Meetup } from './meetup.model';
 
 export class Mess {
 

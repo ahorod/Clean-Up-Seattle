@@ -1,0 +1,38 @@
+<nav class="nav-style navbar navbar-toggleable-md navbar-light bg-faded"  id ="nav-styling">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="">Clean Up Seattle<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link float-right" routerLink="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/messes-list">Messes List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/mess-add">Add Mess</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/meetups">Meetups</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      <li class="nav-item" *ngIf='!(user | async)?.uid'>
+        <button (click)="login()">Login</button>
+      </li>
+      <li class="nav-item" *ngIf='(user | async)?.uid'>
+        <button (click)="logout()">Logout</button>
+      </li>
+      <li *ngIf='(user | async)?.uid'>
+        <p>Hello, {{userName}}!</p>
+        <p>{{(user | async)?.uid}}</p>
+      </li>
+    </ul>
+  </div>
+</nav>

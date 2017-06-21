@@ -22,31 +22,20 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { MessService } from './mess.service';
 import { GeolocationService } from './geolocation.service';
-import { UpdateMeetupsComponent } from './update-meetups/update-meetups.component'
+import { UserService } from './user.service';
+
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },{
-    path: 'messes-list',
-    component: MessesListComponent
-  },{
-    path: 'about',
-    component: AboutComponent
-  },{
-    path: 'messes/:id',
-    component: MessDetailComponent
-  },{
-    path: 'mess-add',
-    component: MessAddComponent
-  },{
-    path: 'messes/:id/meetup-form',
-    component: MeetupFormComponent
-  },{
-    path: 'meetups',
-    component: MeetupListComponent
-  }
+  { path: '', component: MessesListComponent },
+  { path: 'messes-list',component: MessesListComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'messes/:id', component: MessDetailComponent },
+  { path: 'mess-add', component: MessAddComponent },
+  { path: 'messes/:id/meetup-form', component: MeetupFormComponent },
+  { path: 'meetups', component: MeetupListComponent },
 ];
 
 @NgModule({
@@ -59,8 +48,9 @@ const appRoutes: Routes = [
     MessDetailComponent,
     MeetupFormComponent,
     MeetupListComponent,
-    UpdateMeetupsComponent
-    ],
+    NavbarComponent,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -75,7 +65,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     MessService,
-    GeolocationService
+    GeolocationService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

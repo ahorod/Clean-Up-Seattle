@@ -12,12 +12,20 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./meetup-list.component.css']
 })
 export class MeetupListComponent implements OnInit {
+
   messes: FirebaseListObservable<any[]>;
-  meetups: FirebaseListObservable<any[]>;
+  meetups;
+
 
   constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
 
   ngOnInit() {
-    this.meetups = this.messService.getMesses();
+    this.messService.getMeetups().subscribe(dataLastEmittedFromObserver => {
+     this.meetups = dataLastEmittedFromObserver;
+  });
+  }
+  beginUpdatingMeetup(meetupToUpdate){
+    console.log(meetupToUpdate);
+    this.messService.updateMeetup(meetupToUpdate);
   }
 }
