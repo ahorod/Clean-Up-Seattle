@@ -1,40 +1,47 @@
 <app-navbar></app-navbar>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Add New Mess</h3>
-  </div>
-  <br>
-  <div class="panel-body">
-    <div>
-      <div>
-        <label>Mess Location:</label>
-        <br>
-        <input #newLocation>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="report-mess">
+        <div class="report-mess-head">
+          <h1>Report Mess Spot</h1>
+        </div>
+        <div class="report-mess-body">
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Your Name: </label>
+            <div class="col-10">
+              <input class="form-control" type="text" #newName>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Report Date: </label>
+            <div class="col-10">
+              <input class="form-control" type="date" #newDate>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Location: </label>
+            <div class="col-10">
+              <input class="form-control" type="text" #newLocation>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Image: </label>
+            <div class="col-10">
+              <input class="form-control" type="text" #newImage>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Estimated Clean Time: </label>
+            <div class="col-10">
+              <input class="form-control" type="text" #newTime>
+            </div>
+          </div>
+          <br>
+          <button class="btn btn-info btn-lg"(click)="submitForm(newLocation.value, newImage.value, newTime.value, newDate.value, newName.value); newLocation.value=''; newImage.value=''; newTime.value=''; newDate.value=''; newName.value=''">Add</button>
+        </div>
       </div>
 
-      <div>
-        <label>Image:</label>
-        <br>
-        <input #newImage>
-      </div>
-
-      <div>
-        <label>Completion Time:</label>
-        <br>
-        <input #newTime>
-      </div>
-      <div>
-        <label>Date:</label>
-        <br>
-        <input #newDate>
-      </div>
-      <div>
-        <label>Your Name:</label>
-        <br>
-        <input #newName>
-      </div>
-      <br>
-      <button class="btn btn-info"(click)="submitForm(newLocation.value, newImage.value, newTime.value, newDate.value, newName.value); newLocation.value=''; newImage.value=''; newTime.value=''; newDate.value=''; newName.value=''">Add</button>
     </div>
   </div>
 </div>
