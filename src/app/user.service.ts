@@ -13,28 +13,6 @@ export class UserService {
     this.users = database.list('users');
   }
 
-  // addUser(userId, newName, newEmail) {
-  //   var triggerAdd = false;
-  //   this.users.subscribe(dataLastEmittedFromObserver => {
-  //     this.allUsers = dataLastEmittedFromObserver;
-  //     .forEach(user => {
-  //       console.log('user in firebase', user)
-  //       if(user.uid !== userId) {
-  //         return triggerAdd = true;
-  //       } else {
-  //         console.log('user already exists')
-  //       }
-  //     });
-  //     if(triggerAdd === true) {
-  //       this.newUser = new User(newName, newEmail, userId);
-  //       console.log('newUser in loop', this.newUser)
-  //       console.log('users pre push', this.users)
-  //     }
-  //   });
-  //   console.log('newUser outside loop', this.newUser)
-  //   console.log('users post push', this.users)
-  // }
-
   userLogin(userId, newName, newEmail) {
     // var triggerAdd = false;
     this.users.subscribe(usersData => {
@@ -54,17 +32,11 @@ export class UserService {
     });
   }
 
-  // addUser(userName, userEmail, userId) {
-    // if this.database.object('users')
-    // var newUser: User = new User(userName, userEmail, userId);
-    // this.users.push(newUser);
+  // userLogin(userId) {
+  //   this.database.object('members/' + userId).subscribe(user => {
+  //     this.activeUser = user;
+  //   });
+  //   console.log(this.activeUser)
   // }
-
-  userLogin(userId) {
-    this.database.object('members/' + userId).subscribe(user => {
-      this.activeUser = user;
-    });
-    console.log(this.activeUser)
-  }
 
 }

@@ -16,15 +16,13 @@ export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   userInfo: any;
 
-  // userName: any;
-
   constructor(db: AngularFireDatabase, public afAuth: AngularFireAuth, private userService: UserService) {
     this.items = db.list('/items');
     this.user = afAuth.authState;
   }
 
   ngOnInit() {
-    // return this.userName;
+
   }
 
   login() {
