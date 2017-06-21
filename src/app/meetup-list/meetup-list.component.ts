@@ -20,5 +20,4 @@ export class MeetupListComponent implements OnInit {
   ngOnInit() {
     this.meetups = this.messService.getMesses();
   }
-
 }

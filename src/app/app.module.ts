@@ -21,7 +21,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { MessService } from './mess.service';
-import { GeolocationService } from './geolocation.service'
+import { GeolocationService } from './geolocation.service';
+import { UpdateMeetupsComponent } from './update-meetups/update-meetups.component'
 
 const appRoutes: Routes = [
   {
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     MessAddComponent,
     MessDetailComponent,
     MeetupFormComponent,
-    MeetupListComponent
+    MeetupListComponent,
+    UpdateMeetupsComponent
     ],
   imports: [
     BrowserModule,

@@ -23,5 +23,15 @@ export class MessService {
     return this.database.object('/messes/' + id);
   }
 
+  getMeetupById(meetupId: string){
+    return this.database.object('/meetups/' + meetupId);
+  }
+
+  updateMeetup(localUpdatedMeetup){
+      var meetupEntryInFirebase = this.getMeetupById(localUpdatedMeetup.$key);
+      meetupEntryInFirebase.update({location: localUpdatedMeetup.location,
+                                  time: localUpdatedMeetup.time,
+                                  date: localUpdatedMeetup.date});
+    }
 
   }
