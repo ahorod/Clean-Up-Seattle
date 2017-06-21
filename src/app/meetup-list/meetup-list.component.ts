@@ -28,4 +28,9 @@ export class MeetupListComponent implements OnInit {
     console.log(meetupToUpdate);
     this.messService.updateMeetup(meetupToUpdate);
   }
+  beginDeletingMeetup(meetupToDelete){
+    if(confirm("Are you sure you want to delete this item from the inventory?")){
+      this.messService.deleteMeetup(meetupToDelete);
+    }
+  }
 }

@@ -46,5 +46,9 @@ export class MessService {
                                   time: localUpdatedMeetup.time,
                                   date: localUpdatedMeetup.date});
     }
+    deleteMeetup(localMeetupToDelete){
+    var meetupEntryInFirebase = this.getMeetupById(localMeetupToDelete.$key);
+    meetupEntryInFirebase.remove();
+  }
 
   }
