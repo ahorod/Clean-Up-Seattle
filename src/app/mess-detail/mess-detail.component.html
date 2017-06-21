@@ -14,36 +14,39 @@
 
     <a class="btn btn-success" [routerLink]="['/messes/'+ (mess)?.$key + '/meetup-form']">Make a Meetup!</a>
     <br>
+    <!-- Edit Form -->
     <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Your Name: </label>
+      <label for="example-text-input" class="col-2 col-form-label">Location </label>
       <div class="col-10">
-        <input class="form-control" type="text" #newName>
+        <input [(ngModel)]="mess.location">
       </div>
     </div>
     <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Report Date: </label>
+      <label for="example-text-input" class="col-2 col-form-label">Image url </label>
       <div class="col-10">
-        <input class="form-control" type="date" #newDate>
+        <input [(ngModel)]="mess.image">
       </div>
     </div>
     <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Location: </label>
+      <label for="example-text-input" class="col-2 col-form-label">Completion Time </label>
       <div class="col-10">
-        <input class="form-control" type="text" #newLocation>
+        <input [(ngModel)]="mess.completionTime">
       </div>
     </div>
     <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Image: </label>
+      <label for="example-text-input" class="col-2 col-form-label">Date posted </label>
       <div class="col-10">
-        <input class="form-control" type="text" #newImage>
+        <input [(ngModel)]="mess.date">
       </div>
     </div>
     <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Estimated Clean Time: </label>
+      <label for="example-text-input" class="col-2 col-form-label">Name </label>
       <div class="col-10">
-        <input class="form-control" type="text" #newTime>
+        <input [(ngModel)]="mess.name">
       </div>
     </div>
+    <button type="button" (click)="startUpdatingMess(mess)"class="btn">Update</button>
+    <button (click)="startDeletingMess(mess)">Delete</button>
   </div>
   <div class='col-md-8'>
     <agm-map

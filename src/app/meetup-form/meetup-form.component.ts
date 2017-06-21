@@ -21,6 +21,7 @@ export class MeetupFormComponent implements OnInit {
     this.messId = this.route.snapshot.params['id'];
     this.messService.getMessesbyId(this.messId).subscribe(messFB =>{
       this.mess = messFB;
+      
 
     });
   }

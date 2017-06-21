@@ -24,6 +24,7 @@ export class MeetupListComponent implements OnInit {
      this.meetups = dataLastEmittedFromObserver;
   });
   }
+
   beginUpdatingMeetup(meetupToUpdate){
     console.log(meetupToUpdate);
     this.messService.updateMeetup(meetupToUpdate);

@@ -46,9 +46,25 @@ export class MessService {
                                   time: localUpdatedMeetup.time,
                                   date: localUpdatedMeetup.date});
     }
+
     deleteMeetup(localMeetupToDelete){
     var meetupEntryInFirebase = this.getMeetupById(localMeetupToDelete.$key);
     meetupEntryInFirebase.remove();
+  }
+
+  updateMess(localUpdatedMess){
+      var messEntryInFirebase =
+       this.getMessesbyId(localUpdatedMess.$key);
+      messEntryInFirebase.update({location: localUpdatedMess.location,
+                                  image: localUpdatedMess.image,
+                                  completionTime: localUpdatedMess.completionTime,
+                                date: localUpdatedMess.date,
+                              name: localUpdatedMess.name});
+    }
+
+    deleteMess(localMessToDelete){
+    var messEntryInFirebase = this.getMessesbyId(localMessToDelete.$key);
+    messEntryInFirebase.remove();
   }
 
   }

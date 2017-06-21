@@ -53,6 +53,18 @@ export class MessDetailComponent implements OnInit {
   //
   //   this.router.navigate(['messes/:id/meetup-form',selectedMess.$key]);
   // };
+
+  startUpdatingMess(messToUpdate){
+    // console.log(messToUpdate);
+    this.messService.updateMess(messToUpdate);
+  }
+  startDeletingMess(messToDelete){
+    if(confirm("Are you sure you want to delete this item from the inventory?")){
+      this.messService.deleteMess(messToDelete);
+    }
+  }
+
+
 }
 
 interface marker {
