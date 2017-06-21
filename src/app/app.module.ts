@@ -24,29 +24,18 @@ import { MessService } from './mess.service';
 import { GeolocationService } from './geolocation.service';
 import { UserService } from './user.service';
 
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
+
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },{
-    path: 'messes-list',
-    component: MessesListComponent
-  },{
-    path: 'about',
-    component: AboutComponent
-  },{
-    path: 'messes/:id',
-    component: MessDetailComponent
-  },{
-    path: 'mess-add',
-    component: MessAddComponent
-  },{
-    path: 'messes/:id/meetup-form',
-    component: MeetupFormComponent
-  },{
-    path: 'meetups',
-    component: MeetupListComponent
-  }
+  { path: '', component: HomeComponent },
+  { path: 'messes-list',component: MessesListComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'messes/:id', component: MessDetailComponent },
+  { path: 'mess-add', component: MessAddComponent },
+  { path: 'messes/:id/meetup-form', component: MeetupFormComponent },
+  { path: 'meetups', component: MeetupListComponent }
 ];
 
 @NgModule({
@@ -58,8 +47,10 @@ const appRoutes: Routes = [
     MessAddComponent,
     MessDetailComponent,
     MeetupFormComponent,
-    MeetupListComponent
-    ],
+    MeetupListComponent,
+    NavbarComponent,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
