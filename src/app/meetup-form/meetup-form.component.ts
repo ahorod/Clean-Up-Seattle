@@ -24,8 +24,9 @@ export class MeetupFormComponent implements OnInit {
 
     });
   }
+
   submitForm(location: string, time: string, date: string){
-    var newMeetup: Meetup = new Meetup(location, time, date);
+    var newMeetup: Meetup = new Meetup(location, time, date, this.messId);
     var savedMeetup = this.messService.addMeetup(newMeetup);
     this.meetups = this.database.list('/messes/' + this.messId + '/meetups');
      this.meetups.push(savedMeetup);

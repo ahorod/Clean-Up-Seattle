@@ -11,7 +11,39 @@
     Submitted by: {{(mess)?.name}}</h3>
     <hr>
 
+
     <a class="btn btn-success" [routerLink]="['/messes/'+ (mess)?.$key + '/meetup-form']">Make a Meetup!</a>
+    <br>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Your Name: </label>
+      <div class="col-10">
+        <input class="form-control" type="text" #newName>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Report Date: </label>
+      <div class="col-10">
+        <input class="form-control" type="date" #newDate>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Location: </label>
+      <div class="col-10">
+        <input class="form-control" type="text" #newLocation>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Image: </label>
+      <div class="col-10">
+        <input class="form-control" type="text" #newImage>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Estimated Clean Time: </label>
+      <div class="col-10">
+        <input class="form-control" type="text" #newTime>
+      </div>
+    </div>
   </div>
   <div class='col-md-8'>
     <agm-map
