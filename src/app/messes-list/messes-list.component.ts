@@ -12,6 +12,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class MessesListComponent implements OnInit {
   messes: FirebaseListObservable<any[]>;
+  meetups: FirebaseListObservable<any[]>;
   zoom: number = 12;
   lat: number = 47.6062;
   lng: number = -122.3321;
@@ -30,6 +31,7 @@ export class MessesListComponent implements OnInit {
 
   ngOnInit() {
     this.messes = this.messService.getMesses();
+    this.meetups = this.messService.getMeetups()
 
     this.messService.getMesses().subscribe(allMesses => {
       allMesses.forEach(mess => {

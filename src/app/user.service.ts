@@ -14,7 +14,6 @@ export class UserService {
   }
 
   userLogin(userId, newName, newEmail) {
-    // var triggerAdd = false;
     this.users.subscribe(usersData => {
       this.allUsers = usersData;
       for(var i = 0 ; i < this.allUsers.length ; i++) {
