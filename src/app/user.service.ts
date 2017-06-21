@@ -5,10 +5,8 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 @Injectable()
 export class UserService {
   users: FirebaseListObservable<any[]>;
-  foundName: string;
-  foundEmail: string;
-  foundUid: number;
-  activeUser: any;
+  activeUser: User;
+  allUsers: User[];
   newUser: User;
 
   constructor(private database: AngularFireDatabase) {
@@ -17,8 +15,9 @@ export class UserService {
 
   // addUser(userId, newName, newEmail) {
   //   var triggerAdd = false;
-  //   this.database.list('users').subscribe(allUsers => {
-  //     allUsers.forEach(user => {
+  //   this.users.subscribe(dataLastEmittedFromObserver => {
+  //     this.allUsers = dataLastEmittedFromObserver;
+  //     .forEach(user => {
   //       console.log('user in firebase', user)
   //       if(user.uid !== userId) {
   //         return triggerAdd = true;
@@ -36,22 +35,23 @@ export class UserService {
   //   console.log('users post push', this.users)
   // }
 
-  addUser(userId, newName, newEmail) {
+  userLogin(userId, newName, newEmail) {
     // var triggerAdd = false;
-    this.users.forEach(user => {
-      console.log('user in firebase', user)
-      if(user[0].uid !== userId) {
+    this.users.subscribe(usersData => {
+      this.allUsers = usersData;
+      for(var i = 0 ; i < this.allUsers.length ; i++) {
+        console.log('current user in firebase', this.allUsers[i])
+        if(this.allUsers[i].uid === userId) {
+          console.log('user exists')
+          this.activeUser = this.allUsers[i];
+        }
+      }
+      if(this.activeUser === undefined) {
         console.log('adding new user')
         this.newUser = new User(newName, newEmail, userId);
-        console.log('newUser in if', this.newUser)
-      } else {
-        console.log('user already exists')
+        this.users.push(this.newUser);
       }
-    }).then(function() {
-      console.log('newUser outside loop after then', this.newUser)
-      });
-    // this.users.push(this.newUser);
-    console.log('newUser outside loop', this.newUser)
+    });
   }
 
   // addUser(userName, userEmail, userId) {

@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit {
   title = 'Clean Up Seattle';
   items: FirebaseListObservable<any[]>;
   user: Observable<firebase.User>;
+  userInfo: any;
+
   // userName: any;
 
   constructor(db: AngularFireDatabase, public afAuth: AngularFireAuth, private userService: UserService) {
@@ -27,11 +29,7 @@ export class NavbarComponent implements OnInit {
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
-      // console.log(response)
-
-      // this.userService.userLogin(response.user.uid);
-
-      this.userService.addUser(1234, 'NewName', 'NewEmail');
+      this.userService.userLogin(response.user.uid, response.user.displayName, response.user.email);
     });
   }
 
