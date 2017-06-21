@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
-      console.log(response)
+      // console.log(response)
 
       // this.userService.userLogin(response.user.uid);
 
