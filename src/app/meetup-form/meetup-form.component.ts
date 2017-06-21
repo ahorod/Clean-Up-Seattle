@@ -21,14 +21,15 @@ export class MeetupFormComponent implements OnInit {
     this.messId = this.route.snapshot.params['id'];
     this.messService.getMessesbyId(this.messId).subscribe(messFB =>{
       this.mess = messFB;
-      console.log(this.mess);
+
     });
   }
   submitForm(location: string, time: string, date: string){
     var newMeetup: Meetup = new Meetup(location, time, date);
-    console.log(this.mess.meetups);
-     this.meetups = this.database.list('/messes/' + this.messId + '/meetups');
-     this.meetups.push(newMeetup);
+    var savedMeetup = this.messService.addMeetup(newMeetup);
+    this.meetups = this.database.list('/messes/' + this.messId + '/meetups');
+     this.meetups.push(savedMeetup);
+     console.log(this.mess.meetups);
      this.router.navigate(['mess-list-page']);
      console.log(newMeetup);
   }

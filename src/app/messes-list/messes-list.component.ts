@@ -45,7 +45,7 @@ export class MessesListComponent implements OnInit {
             lng: this.inputtedLng,
             draggable: false,
             id: mess.$key
-          }
+          };
           this.markers.push(newMarker);
         });
       });
