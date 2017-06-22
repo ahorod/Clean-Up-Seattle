@@ -21,17 +21,24 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/about">About</a>
       </li>
-      <li class="nav-item" *ngIf='!(user | async)?.uid'>
-        <button (click)="login()">Login</button>
-      </li>
-      <li class="nav-item" *ngIf='(user | async)?.uid'>
-        <button (click)="logout()">Logout</button>
-      </li>
-      <li *ngIf='(user | async)?.uid'>
-        <p>Hello, {{userName}}!</p>
-        <p>{{(user | async)?.uid}}</p>
-      </li>
     </ul>
+      <span class="navbar-brand" *ngIf='!(user | async)?.uid'>
+        <a role="button" class="user-button" (click)="login()">Login</a>
+
+      </span>
+      <span class="navbar-brand" *ngIf='(user | async)?.uid'>
+        <span class="welcome-user">
+          Hello, {{(user | async)?.uid}}
+        </span>
+        <a role="button" class="user-button" (click)="logout()">
+          Logout
+        </a>
+      </span>
+      <!-- <span *ngIf='(user | async)?.uid'>
+        <p>Hello, {{(user)?.displayName}}!</p>
+        <p>{{(user | async)?.uid}}</p>
+      </span> -->
+
   </div>
 </nav>
 
