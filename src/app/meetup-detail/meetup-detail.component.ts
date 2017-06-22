@@ -37,13 +37,13 @@ export class MeetupDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.signUpCounter = 0;
     this.meetupId = this.route.snapshot.params['id'];
     this.messService.getMeetupById(this.meetupId).subscribe(meetupFB => {
       this.meetup = meetupFB;
       this.month = meetupFB.date.slice(5, 7);
       this.year = meetupFB.date.slice(8, 10);
       this.date = this.month + this.year;
+      this.signUpCounter = meetupFB.signUps;
 
       this.weatherService.getWeather(this.date).subscribe(data => {
         this.tempHigh = data.trip.temp_high.avg.F;
@@ -51,8 +51,6 @@ export class MeetupDetailComponent implements OnInit {
         this.chanceRain = data.trip.chance_of.chanceofrainday.percentage;
         this.cloudCover = data.trip.cloud_cover.cond;
       })
-
-      console.log(this.meetup)
 
     })
 
