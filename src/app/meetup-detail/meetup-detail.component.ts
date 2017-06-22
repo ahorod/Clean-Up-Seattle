@@ -23,9 +23,8 @@ export class MeetupDetailComponent implements OnInit {
   chanceRain: any;
   cloudCover: any;
   activeUser: any;
-  meetupForCounter: any;
-  counter: number;
-  updatedCounter: number;
+  showSignUpForm = false;
+  signUpCounter: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,13 +37,13 @@ export class MeetupDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.signUpCounter = 0;
     this.meetupId = this.route.snapshot.params['id'];
     this.messService.getMeetupById(this.meetupId).subscribe(meetupFB => {
       this.meetup = meetupFB;
       this.month = meetupFB.date.slice(5, 7);
       this.year = meetupFB.date.slice(8, 10);
       this.date = this.month + this.year;
-      this.counter = meetupFB.signUps;
 
       this.weatherService.getWeather(this.date).subscribe(data => {
         this.tempHigh = data.trip.temp_high.avg.F;
@@ -52,6 +51,9 @@ export class MeetupDetailComponent implements OnInit {
         this.chanceRain = data.trip.chance_of.chanceofrainday.percentage;
         this.cloudCover = data.trip.cloud_cover.cond;
       })
+
+      console.log(this.meetup)
+
     })
 
     this.activeUser.subscribe(response => {
@@ -59,12 +61,14 @@ export class MeetupDetailComponent implements OnInit {
     })
   }
 
-  signUp() {
-    // this.meetupForCounter = this.messService.getMeetupById(this.meetupId).subscribe(meetupFB => {
-    //   this.meetupForCounter = meetupFB;
-    //   this.updatedCounter = this.meetupForCounter + 1;
-    //   this.messService.updateCounter(meetupFB, this.updatedCounter);
-    // });
+  clickSignUp() {
+    this.showSignUpForm = true;
+  }
+
+  submitSignUp() {
+    this.showSignUpForm = false;
+    this.signUpCounter += 1;
+    this.messService.updateCounter(this.meetupId, this.signUpCounter);
   }
 
 }

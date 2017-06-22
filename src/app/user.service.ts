@@ -28,8 +28,4 @@ export class UserService {
     });
   }
 
-  loginStatus() {
-    console.log(this.activeUser)
-  }
-
 }
