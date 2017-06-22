@@ -5,7 +5,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MessService } from '../mess.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 
-
 @Component({
   selector: 'app-meetup-list',
   templateUrl: './meetup-list.component.html',
@@ -30,6 +29,7 @@ export class MeetupListComponent implements OnInit {
     this.messService.updateMeetup(meetupToUpdate);
     this.selectedMeetup = null;
   }
+  
   beginDeletingMeetup(meetupToDelete){
     if(confirm("Are you sure you want to delete this item from the inventory?")){
       this.messService.deleteMeetup(meetupToDelete);
@@ -40,4 +40,5 @@ export class MeetupListComponent implements OnInit {
     this.selectedMeetup = meetup;
     console.log(this.selectedMeetup)
   }
+
 }

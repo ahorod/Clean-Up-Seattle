@@ -6,17 +6,16 @@
 
 ## Description
 
-Local Zoo is a web application to track animals for zoo. Zoo staff can add and update the existing animal data. Also, he or she would be able to sort the animal by animal's age group.
+Application for users to sign in and report a trash problem in any location in Seattle. Users are also able to schedule meetups to arrange a community cleanup.
 
 ## Planning
 
 1. Configuration/dependencies
   * Angular CLI version 1.1.0
-  * Bootstrap v4.0.0-alpha.6
 
 2. Specs
-  * Spec 1: Generate 3 components to display animal detail, add new animal, and edit animal info.
-  * Spec 2: Hardcode animals data and display on template in animal detail component.
+  * Spec 1: Generate components to display mess detail, add new mess, and edit mess.
+  * Spec 2: Generate components to display meetup detail, add new mess, and edit mess.
   * Spec 3: Add new form and functionality to collect user input to add new animal.
   * Spec 4: Edit existing animal data.
   * Spec 5: Filter animal data by age group.
@@ -89,12 +88,6 @@ The website is licensed under the MIT license.
 
 
 
-
-
-
-# CleanUpSeattle
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
 

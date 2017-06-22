@@ -23,11 +23,16 @@ import { environment } from '../environments/environment';
 import { MessService } from './mess.service';
 import { GeolocationService } from './geolocation.service';
 import { UserService } from './user.service';
+import { WeatherService } from './weather.service';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+
 import { MeetupByMessPipe } from './meetup-by-mess.pipe';
+
+import { MeetupDetailComponent } from './meetup-detail/meetup-detail.component';
+
 
 
 const appRoutes: Routes = [
@@ -39,6 +44,7 @@ const appRoutes: Routes = [
   { path: 'mess-add', component: MessAddComponent },
   { path: 'messes/:id/meetup-form', component: MeetupFormComponent },
   { path: 'meetups', component: MeetupListComponent },
+  { path: 'meetups/:id', component: MeetupDetailComponent },
 ];
 
 @NgModule({
@@ -54,7 +60,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     WelcomeComponent,
-    MeetupByMessPipe
+    MeetupByMessPipe,
+    MeetupDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +78,8 @@ const appRoutes: Routes = [
   providers: [
     MessService,
     GeolocationService,
-    UserService
+    UserService,
+    WeatherService
   ],
   bootstrap: [AppComponent]
 })
