@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
 
 <div class='container-fluid'>
-  <h1>Clean {{(meetup)?.messLocation}}</h1>
+  <h1>
+    Clean Up {{(meetup)?.messLocation}}
+    <small><span id='meetupCounter'>{{counter}} People Signed Up</span></small>
+  </h1>
 </div>
 
 <br>
@@ -21,7 +24,9 @@
       <h4>The sky will be {{cloudCover}}, with a {{chanceRain}}% chance of rain.</h4>
     </div>
 
-  </div>
+  </div><!-- row -->
+
+  <button *ngIf='(activeUser | async)' class='btn btn-info' (click)='signUp()'>Sign Up for This Meetup</button>
 </div>
 
 

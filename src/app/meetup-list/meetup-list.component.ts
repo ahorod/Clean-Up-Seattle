@@ -29,7 +29,7 @@ export class MeetupListComponent implements OnInit {
     this.messService.updateMeetup(meetupToUpdate);
     this.selectedMeetup = null;
   }
-  
+
   beginDeletingMeetup(meetupToDelete){
     if(confirm("Are you sure you want to delete this item from the inventory?")){
       this.messService.deleteMeetup(meetupToDelete);

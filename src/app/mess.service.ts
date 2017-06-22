@@ -47,7 +47,7 @@ export class MessService {
                                   date: localUpdatedMeetup.date});
     }
 
-    deleteMeetup(localMeetupToDelete){
+  deleteMeetup(localMeetupToDelete){
     var meetupEntryInFirebase = this.getMeetupById(localMeetupToDelete.$key);
     meetupEntryInFirebase.remove();
   }
@@ -62,9 +62,14 @@ export class MessService {
                               name: localUpdatedMess.name});
     }
 
-    deleteMess(localMessToDelete){
+  deleteMess(localMessToDelete){
     var messEntryInFirebase = this.getMessesbyId(localMessToDelete.$key);
     messEntryInFirebase.remove();
   }
 
+  updateCounter(meetup, counter) {
+    var meetupEntryInFirebase = this.getMeetupById(meetup.$key);
+    meetupEntryInFirebase.update({signUps: counter});
   }
+
+}
