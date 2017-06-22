@@ -2,33 +2,29 @@
 
 #### Angular JS Group Project, 06/22/2017
 
-#### By Brian Fan, Anna Horodetska, Katie Borel, Bryan Lin
+#### By Brian Fan, Anna Horodetska, Katie Borel, and Bryan Lin
 
 ## Description
 
 Application for users to sign in and report a trash problem in any location in Seattle. Users are also able to schedule meetups to arrange a community cleanup.
 
-## Planning
 
-1. Configuration/dependencies
+## Configuration/dependencies
   * Angular CLI version 1.1.0
 
-2. Specs
-  * Spec 1: Generate components to display mess detail, add new mess, and edit mess.
-  * Spec 2: Generate components to display meetup detail, add new mess, and edit mess.
-  * Spec 3: Add new form and functionality to collect user input to add new animal.
-  * Spec 4: Edit existing animal data.
-  * Spec 5: Filter animal data by age group.
+## Specs
+  * Spec 1: Generate components to display mess detail, add new mess, delete, and edit mess.
+  * Spec 2: Generate components to display meetup detail, add new mess, delete, and edit mess.
+  * Spec 3: Add new functionality to show markers on google map api and display.
+  * Spec 4: add twitter api and display.
+  * Spec 5: display meetup details on mess page for that particular mess.
+  * Spec 5: add componento to display weather
 
-3. Potential future functionalities
-  * Save animal data to database
-  * See animal detail at single page
-  * Let user to delete animal data
-  * Display animal by youngest to oldest
-  * Import animal data through API.
 
-4. UX/UI
-  * Install and use Bootstrap 4
+## Potential future functionalities
+  * user profile to show meetups signed up for
+  * meetup alerts user the day of meetup
+  * functionality to allow users to upload an image fro their phone
 
 ## Prerequisites
 
@@ -40,13 +36,13 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone https://github.com/txbluebee/local-zoo`
-* `cd local-zoo`
+* `cd Clean-Up-Seattle`
 * `npm install`
 
 ## Running / Development
 
 * `ng serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* Visit your app in the browser at [http://localhost:4200](http://localhost:4200).
 
 ## Technologies Used
 
@@ -60,56 +56,12 @@ _TypeScript_
 
 _Angular.js_
 
-### License
-
-Copyright (c) 2017 Brian Fan
-The website is licensed under the MIT license.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+### License
+
+Copyright (c) 2017 Brian Fan, Anna Horodetska, Katie Borel, and Bryan Lin
+The website is licensed under the MIT license.
