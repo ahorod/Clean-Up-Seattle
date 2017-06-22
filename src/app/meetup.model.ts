@@ -1,5 +1,5 @@
 export class Meetup {
-  public signUps: number;
+  public signUps: number = 0;
 
   constructor (
     public location: string,
