@@ -28,3 +28,7 @@
 .social-icons a {
   color: #909296;
 }
+
+.card-img-top {
+  height: 260px;
+}
