@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { MessService } from './mess.service';
 import { GeolocationService } from './geolocation.service';
 import { UserService } from './user.service';
+import { WeatherService } from './weather.service';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
   providers: [
     MessService,
     GeolocationService,
-    UserService
+    UserService,
+    WeatherService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,7 @@ import { Meetup } from '../meetup.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MessService } from '../mess.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { WeatherService } from '../weather.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class MeetupListComponent implements OnInit {
   meetups;
   selectedMeetup = null;
 
-  constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
+  constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService, private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.messService.getMeetups().subscribe(dataLastEmittedFromObserver => {
@@ -39,5 +40,14 @@ export class MeetupListComponent implements OnInit {
   editMeetup(meetup){
     this.selectedMeetup = meetup;
     console.log(this.selectedMeetup)
+  }
+
+  testWeather() {
+    this.weatherService.getWeather().subscribe(data => {
+      console.log('temp high in component', data.trip.temp_high.avg.F)
+      console.log('temp low in component', data.trip.temp_low.avg.F)
+      console.log('chance of rain in component', data.trip.chance_of.chanceofrainday.percentage)
+      console.log('cloudy in component', data.trip.cloud_cover.cond)
+    })
   }
 }
