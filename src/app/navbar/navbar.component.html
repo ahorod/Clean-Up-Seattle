@@ -28,7 +28,7 @@
       </span>
       <span class="navbar-brand" *ngIf='(user | async)?.uid'>
         <span class="welcome-user">
-          Hello, {{(user | async)?.uid}}
+          Hello, {{(user | async)?.displayName}}
         </span>
         <a role="button" class="user-button" (click)="logout()">
           Logout
