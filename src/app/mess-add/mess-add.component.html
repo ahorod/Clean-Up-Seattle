@@ -1,7 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 offset-sm-2">
+    <div class="col-sm-4">
+      <img class="img-fluid" src="/assets/img/greencity.jpg" alt="">
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6">
       <div class="report-mess">
         <div class="report-mess-head">
           <h1>Report Mess Spot</h1>
@@ -38,7 +42,7 @@
             </div>
           </div>
           <br>
-          <button class="btn btn-info btn-lg"(click)="submitForm(newLocation.value, newImage.value, newTime.value, newDate.value, newName.value); newLocation.value=''; newImage.value=''; newTime.value=''; newDate.value=''; newName.value=''">Add</button>
+          <button class="btn btn-info btn-lg"(click)="submitForm(newLocation.value, newImage.value, newTime.value, newDate.value, newName.value); newLocation.value=''; newImage.value=''; newTime.value=''; newDate.value=''; newName.value=''">Report Mess</button>
         </div>
       </div>
 

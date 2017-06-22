@@ -4,6 +4,7 @@ import { Mess } from '../mess.model';
 import { MessService } from '../mess.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { GeolocationService } from '../geolocation.service';
+import { Meetup } from '../meetup.model';
 
 @Component({
   selector: 'app-mess-detail',
@@ -54,6 +55,13 @@ export class MessDetailComponent implements OnInit {
   //   this.router.navigate(['messes/:id/meetup-form',selectedMess.$key]);
   // };
 
+  submitForm(location: string, time: string, date: string){
+
+    var newMeetup: Meetup = new Meetup(location, time, date, this.messId, this.location);
+    var savedMeetup = this.messService.addMeetup(newMeetup);
+    this.router.navigate(['/messes' + this.messId]);
+    console.log(newMeetup);
+  }
   startUpdatingMess(messToUpdate){
     // console.log(messToUpdate);
     this.messService.updateMess(messToUpdate);

@@ -1,74 +1,127 @@
 <app-navbar></app-navbar>
-<div class='row'>
-  <div class='col-md-4'>
-    <h3>{{(mess)?.location}}</h3>
-    <br>
-    <h3><img src="{{(mess)?.image}}" alt="trash" style="width:300px;" />
-    Hours to complete: {{(mess)?.completionTime}}
-    <br>
-    Date: {{(mess)?.date}}
-    <br>
-    Submitted by: {{(mess)?.name}}</h3>
-    <hr>
+<div class="container">
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class=""></div>
+      <h3>Mess Spot: {{(mess)?.location}}</h3>
+      <img src="{{(mess)?.image}}" alt="trash" style="width:300px;" />
 
+      <p>Hours to complete: {{(mess)?.completionTime}}<p>
 
-    <a class="btn btn-success" [routerLink]="['/messes/'+ (mess)?.$key + '/meetup-form']">Make a Meetup!</a>
-    <br>
-    <!-- Edit Form -->
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Location </label>
-      <div class="col-10">
-        <input [(ngModel)]="mess.location">
+      <p>Date: {{(mess)?.date}}<p>
+
+      <p>Submitted by: {{(mess)?.name}}<p>
+      <hr>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+        Make A Meetup!
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Add New Meetup</h3>
+                </div>
+                <br>
+                <div class="panel-body">
+                  <div>
+                    <div>
+                      <label>Meetup Location:</label>
+                      <br>
+                      <input #newLocation type="text">
+                    </div>
+
+                    <div>
+                      <label>Time:</label>
+                      <br>
+                      <input #newTime type='time'>
+                    </div>
+
+                    <div>
+                      <label>Date:</label>
+                      <br>
+                      <input #newDate type="date">
+                    </div>
+
+                    <br>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="submitForm(newLocation.value, newTime.value, newDate.value); newLocation.value='';  newTime.value=''; newDate.value='';">Save changes</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Image url </label>
-      <div class="col-10">
-        <input [(ngModel)]="mess.image">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Completion Time </label>
-      <div class="col-10">
-        <input [(ngModel)]="mess.completionTime">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Date posted </label>
-      <div class="col-10">
-        <input [(ngModel)]="mess.date">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Name </label>
-      <div class="col-10">
-        <input [(ngModel)]="mess.name">
-      </div>
-    </div>
-    <button type="button" (click)="startUpdatingMess(mess)"class="btn">Update</button>
-    <button (click)="startDeletingMess(mess)">Delete</button>
-  </div>
-  <div class='col-md-8'>
-    <agm-map
-    [latitude]="messLat"
-    [longitude]="messLng"
-    [zoom]='zoom'
-    [disableDefaultUI]=false
-    [zoomControl]='false'>
 
-      <agm-marker
-      [latitude]="(marker)?.lat"
-      [longitude]="(marker)?.lng"
-      [markerDraggable]='(marker)?.draggable'>
+      <br>
+      <!-- Edit Form -->
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Location </label>
+        <div class="col-10">
+          <input [(ngModel)]="mess.location">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Image url </label>
+        <div class="col-10">
+          <input [(ngModel)]="mess.image">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Completion Time </label>
+        <div class="col-10">
+          <input [(ngModel)]="mess.completionTime">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Date posted </label>
+        <div class="col-10">
+          <input [(ngModel)]="mess.date">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Name </label>
+        <div class="col-10">
+          <input [(ngModel)]="mess.name">
+        </div>
+      </div>
+      <button type="button" (click)="startUpdatingMess(mess)"class="btn">Update</button>
+      <button (click)="startDeletingMess(mess)">Delete</button>
+    </div>
+    <div class='col-md-6'>
+      <agm-map
+      [latitude]="messLat"
+      [longitude]="messLng"
+      [zoom]='zoom'
+      [disableDefaultUI]=false
+      [zoomControl]='false'>
 
-      </agm-marker>
-    </agm-map>
-  </div><!-- map column -->
-  <div class="col-sm-4">
+        <agm-marker
+        [latitude]="(marker)?.lat"
+        [longitude]="(marker)?.lng"
+        [markerDraggable]='(marker)?.draggable'>
 
-  </div>
-</div><!-- row -->
+        </agm-marker>
+      </agm-map>
+    </div><!-- map column -->
+    <div class="col-sm-4">
 
-<div class="row">
+    </div>
+  </div><!-- row -->
 
 </div>

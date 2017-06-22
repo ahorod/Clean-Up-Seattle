@@ -18,10 +18,10 @@ export class MessAddComponent implements OnInit {
   submitForm(location: string, image: string, completionTime: string, date: string, name: string) {
     var newMess: Mess = new Mess(location, image, completionTime, date, name);
     this.messService.addMess(newMess);
-    this.router.navigate(['mess-list-page']);
+    this.router.navigate(['/messes-list']);
   }
 
-  
+
 
 
 }
