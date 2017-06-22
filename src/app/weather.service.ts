@@ -12,8 +12,8 @@ export class WeatherService {
 
   constructor(private http: Http) { }
 
-  getWeather() {
-    var result = this.http.get('http://api.wunderground.com/api/91d19c4aae9b5ff5/planner_07190719/q/WA/Seattle.json').map(res => res.json())
+  getWeather(mmdd) {
+    var result = this.http.get('http://api.wunderground.com/api/91d19c4aae9b5ff5/planner_' + mmdd + mmdd + '/q/WA/Seattle.json').map(res => res.json())
     return result;
   }
 }

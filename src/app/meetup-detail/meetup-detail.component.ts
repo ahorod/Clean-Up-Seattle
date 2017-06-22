@@ -12,6 +12,9 @@ import { WeatherService } from '../weather.service';
 export class MeetupDetailComponent implements OnInit {
   meetupId: any;
   meetup: any;
+  month: any;
+  year: any;
+  date: any;
   tempHigh: any;
   tempLow: any;
   chanceRain: any;
@@ -27,13 +30,20 @@ export class MeetupDetailComponent implements OnInit {
     this.meetupId = this.route.snapshot.params['id'];
     this.messService.getMeetupById(this.meetupId).subscribe(meetupFB => {
       this.meetup = meetupFB;
-    })
+      console.log(meetupFB)
+      this.month = meetupFB.date.slice(5, 7);
+      this.year = meetupFB.date.slice(8, 10);
+      console.log(this.month)
+      console.log(this.year)
+      this.date = this.month + this.year
 
-    this.weatherService.getWeather().subscribe(data => {
-      this.tempHigh = data.trip.temp_high.avg.F;
-      this.tempLow = data.trip.temp_low.avg.F;
-      this.chanceRain = data.trip.chance_of.chanceofrainday.percentage;
-      this.cloudCover = data.trip.cloud_cover.cond;
+      console.log(this.date)
+      this.weatherService.getWeather(this.date).subscribe(data => {
+        this.tempHigh = data.trip.temp_high.avg.F;
+        this.tempLow = data.trip.temp_low.avg.F;
+        this.chanceRain = data.trip.chance_of.chanceofrainday.percentage;
+        this.cloudCover = data.trip.cloud_cover.cond;
+      })
     })
   }
 
