@@ -26,6 +26,36 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
         Make A Meetup!
       </button>
+      <hr>
+      <!-- display meetups -->
+      <div class="meetup-list">
+        <div class="meetup-list-head">
+          <h1>Meetups for Location</h1>
+        </div>
+        <div class="meetup-list-body">
+          <div class="row">
+
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Meetup Location</th>
+                    <th>Meetup Date</th>
+                    <th>Meetup Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let meetup of meetups | meetupByMess:messId">
+                    <td>{{meetup.location}}</td>
+                    <td>{{meetup.date}}</td>
+                    <td>{{meetup.time}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      <!-- display meetups -->
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -117,7 +147,7 @@
                   <div class="form-group row">
                     <label for="example-text-input" class="col-2 col-form-label">Date posted </label>
                     <div class="col-10">
-                      <input [(ngModel)]="mess.date">
+                      <input type="date" [(ngModel)]="mess.date">
                     </div>
                   </div>
                   <div class="form-group row">

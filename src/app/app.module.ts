@@ -28,7 +28,11 @@ import { WeatherService } from './weather.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+
+import { MeetupByMessPipe } from './meetup-by-mess.pipe';
+
 import { MeetupDetailComponent } from './meetup-detail/meetup-detail.component';
+
 
 
 const appRoutes: Routes = [
@@ -56,6 +60,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     WelcomeComponent,
+    MeetupByMessPipe,
     MeetupDetailComponent
   ],
   imports: [

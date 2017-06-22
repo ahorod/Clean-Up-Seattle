@@ -1,6 +1,93 @@
-# CleanUpSeattle
+# Clean Up Seattle
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+#### Angular JS Group Project, 06/22/2017
+
+#### By Brian Fan, Anna Horodetska, Katie Borel, Bryan Lin
+
+## Description
+
+Application for users to sign in and report a trash problem in any location in Seattle. Users are also able to schedule meetups to arrange a community cleanup.
+
+## Planning
+
+1. Configuration/dependencies
+  * Angular CLI version 1.1.0
+
+2. Specs
+  * Spec 1: Generate components to display mess detail, add new mess, and edit mess.
+  * Spec 2: Generate components to display meetup detail, add new mess, and edit mess.
+  * Spec 3: Add new form and functionality to collect user input to add new animal.
+  * Spec 4: Edit existing animal data.
+  * Spec 5: Filter animal data by age group.
+
+3. Potential future functionalities
+  * Save animal data to database
+  * See animal detail at single page
+  * Let user to delete animal data
+  * Display animal by youngest to oldest
+  * Import animal data through API.
+
+4. UX/UI
+  * Install and use Bootstrap 4
+
+## Prerequisites
+
+You will need the following things properly installed on your computer.
+* [Git](https://git-scm.com/)
+* [Node.js](https://nodejs.org/) (with NPM)
+* [Angular CLI](https://cli.angular.io/)
+
+## Installation
+
+* `git clone https://github.com/txbluebee/local-zoo`
+* `cd local-zoo`
+* `npm install`
+
+## Running / Development
+
+* `ng serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
+
+## Technologies Used
+
+_HTML_
+
+_SCSS_
+
+_Bootstrap_
+
+_TypeScript_
+
+_Angular.js_
+
+### License
+
+Copyright (c) 2017 Brian Fan
+The website is licensed under the MIT license.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Development server
 
