@@ -4,11 +4,16 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class WeatherService {
+  weatherData: any;
+  tempHigh: any;
+  tempLow: any;
+  chanceRain: any;
+  cloudCover: any;
 
   constructor(private http: Http) { }
 
-  getWeather(date) {
-    var response = this.http.get('http://api.wunderground.com/api/Your_Key/planner_MMDDMMDD/q/CA/San_Francisco.json')
+  getWeather() {
+    var result = this.http.get('http://api.wunderground.com/api/91d19c4aae9b5ff5/planner_07190719/q/WA/Seattle.json').map(res => res.json())
+    return result;
   }
-
 }

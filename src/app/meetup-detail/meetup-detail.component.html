@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class='container-fluid'>
+  <h1>Clean {{(meetup)?.messLocation}}</h1>
+</div>
+
+<br>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <h3>Meet At:</h3>
+      <h3>{{(meetup)?.location}}</h3>
+      <h3>{{(meetup)?.date}}</h3>
+      <h3>{{(meetup)?.time}}</h3>
+    </div>
+
+    <div class='col-md-6'>
+      <h3>Weather Forecast:</h3>
+      <h4>Temperature will be a high of {{tempHigh}}<sup>o</sup>F and a low of {{tempLow}}<sup>o</sup>F.</h4>
+      <h4>The sky will be {{cloudCover}}, with a {{chanceRain}}% chance of rain.</h4>
+    </div>
+
+  </div>
+</div>
+
+
+
+<app-footer></app-footer>

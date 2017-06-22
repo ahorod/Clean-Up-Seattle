@@ -30,6 +30,9 @@
                 <a (click)="editMeetup(meetup)" role="button">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
+                <a [routerLink]="['/meetups/' + meetup.$key]">
+                  meetup detail
+                </a>
               </td>
             </tr>
           </tbody>
