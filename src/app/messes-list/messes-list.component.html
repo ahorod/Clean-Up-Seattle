@@ -11,9 +11,9 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><b>Reported Date: </b> {{(mess)?.date}}</li>
-            <li class="list-group-item"><b>Est CleanTime: </b> {{(mess)?.completionTime}}</li>
-            <li class="list-group-item"><b>Reported By:</b>{{(mess)?.name}}</li>
+            <li class="list-group-item"><b>Reported Date: </b>{{(mess)?.date}}</li>
+            <li class="list-group-item"><b>Est Clean Time: </b> {{(mess)?.completionTime}}</li>
+            <li class="list-group-item"><b>Reported By: </b>{{(mess)?.name}}</li>
           </ul>
           <div class="card-block">
             <a type="button" class="btn btn-block" (click)="renderDetail(mess)">Information</a>
