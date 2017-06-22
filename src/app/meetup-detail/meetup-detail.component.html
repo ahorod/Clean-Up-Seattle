@@ -1,45 +1,52 @@
 <app-navbar></app-navbar>
 
-<div class='container-fluid'>
-  <h1>
+<div class="container">
+
+    <div class="weather-head">
+      <h1 class="text-center">MeetUp Detail</h1>
+    </div>
+  <!-- <h1>
     Clean Up {{(meetup)?.messLocation}}
-    <small><span id='meetupCounter'>{{(meetup)?.signUps}} People Signed Up</span></small>
-  </h1>
-</div>
+    <small><span>{{(meetup)?.signUps}} People Signed Up</span></small>
+  </h1> -->
+
 
 <br>
 
-<div class='container'>
+<div class="weather-body">
   <div class='row'>
     <div class='col-md-6'>
-      <h3>Meet At:</h3>
-      <h3>{{(meetup)?.location}}</h3>
-      <h3>{{(meetup)?.date}}</h3>
-      <h3>{{(meetup)?.time}}</h3>
-    </div>
+      <h2>Meet At: {{(meetup)?.location}} </h2>
+      <p><b>Meetup Date: </b> {{(meetup)?.date}}</p>
+      <p><b>Meetup Time: </b> {{(meetup)?.time}}</p>
 
+
+      <button class='btn btn-info' (click)='clickSignUp()'>Sign Up for This Meetup</button>
+
+      <div *ngIf='showSignUpForm' class="singup-meetup mt-4">
+        <div class='form-group'>
+          <label>Name:</label>
+          <input type='text'>
+        </div>
+        <div class='form-group'>
+          <label>Email:</label>
+          <input type='text'>
+        </div>
+        <button (click)='submitSignUp()' class='btn btn-warning mb-4'>Sign Up</button>
+      </div>
+    </div>
     <div class='col-md-6'>
       <h3>Weather Forecast:</h3>
+      <img src="/assets/img/weather.png" class="img-fluid" alt="" width="50%"/>
       <h4>Temperature will be a high of {{tempHigh}}<sup>o</sup>F and a low of {{tempLow}}<sup>o</sup>F.</h4>
       <h4>The sky will be {{cloudCover}}, with a {{chanceRain}}% chance of rain.</h4>
     </div>
-
   </div><!-- row -->
-
-  <button *ngIf='!showSignUpForm' class='btn btn-info' (click)='clickSignUp()'>Sign Up for This Meetup</button>
-
-  <form *ngIf='showSignUpForm'>
-    <div class='form-group'>
-      <label>Name:</label>
-      <input type='text'>
-    </div>
-    <div class='form-group'>
-      <label>Email:</label>
-      <input type='text'>
-    </div>
-    <button (click)='submitSignUp()' class='btn btn-info'>Sign Up</button>
-  </form>
 </div>
+
+</div>
+
+
 
 
 
