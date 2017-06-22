@@ -3,7 +3,7 @@
 <div class='container-fluid'>
   <h1>
     Clean Up {{(meetup)?.messLocation}}
-    <small><span id='meetupCounter'>{{counter}} People Signed Up</span></small>
+    <small><span id='meetupCounter'>{{(meetup)?.signUps}} People Signed Up</span></small>
   </h1>
 </div>
 
@@ -26,7 +26,19 @@
 
   </div><!-- row -->
 
-  <button *ngIf='(activeUser | async)' class='btn btn-info' (click)='signUp()'>Sign Up for This Meetup</button>
+  <button *ngIf='!showSignUpForm' class='btn btn-info' (click)='clickSignUp()'>Sign Up for This Meetup</button>
+
+  <form *ngIf='showSignUpForm'>
+    <div class='form-group'>
+      <label>Name:</label>
+      <input type='text'>
+    </div>
+    <div class='form-group'>
+      <label>Email:</label>
+      <input type='text'>
+    </div>
+    <button (click)='submitSignUp()' class='btn btn-info'>Sign Up</button>
+  </form>
 </div>
 
 

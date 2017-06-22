@@ -16,18 +16,26 @@
   width: 1800px;
   height: 1200px;
   display: flex;
-  justify-content: flex-start  ;
-  align-items: flex-start;
+  justify-content:center;
+  align-items:center;
 }
 
 .welcome-caption {
-  padding: 1rem 2rem;
+  padding: 1rem 30%;
   background-color: rgba(0,0,0,0.5)
 }
 
 .welcome-cover h1 {
+  font-family: 'Bubbler One', sans-serif;
   font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 10px;
   color: white;
+}
+
+.caption{
+  color: lightgray;
+  font-weight: bold;
 }
 
 .welcome-cover a:hover {
@@ -44,4 +52,8 @@
   font-size: 5.5rem;
   color: white;
   background-color: rgba(84, 183, 31, 0.6);
+}
+
+.clean-title{
+
 }

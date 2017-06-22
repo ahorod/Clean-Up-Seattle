@@ -16,6 +16,7 @@
               <th>Meetup Date</th>
               <th>Meetup Time</th>
               <th>Edit Meetup</th>
+              <th>Meetup Details</th>
             </tr>
           </thead>
           <tbody>
@@ -28,8 +29,10 @@
                 <a (click)="editMeetup(meetup)" role="button">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
+              </td>
+              <td>
                 <a [routerLink]="['/meetups/' + meetup.$key]">
-                  meetup detail
+                  Details
                 </a>
               </td>
             </tr>

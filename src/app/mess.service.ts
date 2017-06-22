@@ -67,9 +67,11 @@ export class MessService {
     messEntryInFirebase.remove();
   }
 
-  updateCounter(meetup, counter) {
-    var meetupEntryInFirebase = this.getMeetupById(meetup.$key);
+  updateCounter(meetupId, counter) {
+    var meetupEntryInFirebase = this.getMeetupById(meetupId);
     meetupEntryInFirebase.update({signUps: counter});
+    console.log(meetupId)
+    console.log(meetupEntryInFirebase)
   }
 
 }
