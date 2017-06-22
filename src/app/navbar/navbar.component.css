@@ -18,3 +18,21 @@
   font-size: 4rem;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.user-button {
+  background-color: inherit;
+  border: 1px solid white;
+  padding: 5px 15px;
+  color: white;
+  cursor: pointer;
+}
+
+p {
+  color: white;
+}
+
+.welcome-user {
+  color: #85f290;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
