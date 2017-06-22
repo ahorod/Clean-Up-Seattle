@@ -15,6 +15,7 @@ export class MeetupListComponent implements OnInit {
 
   messes: FirebaseListObservable<any[]>;
   meetups;
+  selectedMeetup = null;
 
   constructor(private route:ActivatedRoute, private router: Router,  private messService: MessService) { }
 
@@ -27,10 +28,16 @@ export class MeetupListComponent implements OnInit {
   beginUpdatingMeetup(meetupToUpdate){
     console.log(meetupToUpdate);
     this.messService.updateMeetup(meetupToUpdate);
+    this.selectedMeetup = null;
   }
   beginDeletingMeetup(meetupToDelete){
     if(confirm("Are you sure you want to delete this item from the inventory?")){
       this.messService.deleteMeetup(meetupToDelete);
     }
+  }
+
+  editMeetup(meetup){
+    this.selectedMeetup = meetup;
+    console.log(this.selectedMeetup)
   }
 }

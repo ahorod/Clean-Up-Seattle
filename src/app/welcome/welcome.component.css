@@ -6,22 +6,22 @@
 .welcome-page {
   height: 100%;
   width: 100%;
-  background-image: url('/assets/img/cover1.jpg');
+  background-image: url('/assets/img/cleanupst.jpg');
   background-size: cover;
   background-position: center center;;
-
+  position: relative;
 }
 
 .welcome-cover {
   width: 1800px;
   height: 1200px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start  ;
   align-items: flex-start;
 }
 
 .welcome-caption {
-  padding: 4rem 5rem;
+  padding: 1rem 2rem;
   background-color: rgba(0,0,0,0.5)
 }
 
@@ -32,4 +32,16 @@
 
 .welcome-cover a:hover {
   text-decoration: none;
+}
+
+.welcome-slogan {
+  position: absolute;
+  bottom: 13rem;
+  left: 30rem;
+}
+
+.welcome-slogan h1 {
+  font-size: 5.5rem;
+  color: white;
+  background-color: rgba(84, 183, 31, 0.6);
 }

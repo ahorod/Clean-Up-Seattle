@@ -1,1 +1,20 @@
+.cover {
+  background: url('/assets/img/cover2.jpg') no-repeat center center;
+  background-size: cover;
+  height: 27rem;
+  margin-bottom: 3rem;
+}
 
+.cover-caption {
+  text-align: center;
+  padding-top: 9rem;
+}
+
+.cover-caption h1{
+  border: 5px double white;
+  padding: 1rem 2rem;
+  display: inline-block;
+  color: white;
+  font-size: 4rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}

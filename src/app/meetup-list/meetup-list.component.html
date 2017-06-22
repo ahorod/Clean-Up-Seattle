@@ -27,39 +27,38 @@
               <td>{{meetup.date}}</td>
               <td>{{meetup.time}}</td>
               <td>
-                <a role="button">
+                <a (click)="editMeetup(meetup)" role="button">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
+
+        <div *ngIf="selectedMeetup" class="edit-meetup-info">
+          <div class="edit-meetup-form">
+            <h4 class="text-center">Update Meetup Info</h4>
+            <div class="form-group">
+              <label>Location:</label>
+              <input [(ngModel)]="selectedMeetup.location" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label>Date:</label>
+              <input [(ngModel)]="selectedMeetup.date" class="form-control" type="date">
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input [(ngModel)]="selectedMeetup.time" class="form-control" type="time">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="beginUpdatingMeetup(selectedMeetup)">Update</button>
+            <button class="btn btn-danger" (click)="beginDeletingMeetup(selectedMeetup)">Delete</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
 
-<div *ngFor="let meetup of meetups">
-    <h3><em>{{meetup.location}}</em>{{meetup.time}}{{meetup.date}}</h3>
-    <!-- <app-update-meetups [selectedMeetup]='meetup'></app-update-meetups> -->
-    <div>
-        <label>Meetup Location:</label>
-        <br>
-        <input [(ngModel)]="meetup.location">
-      </div>
-
-      <div>
-        <label>Time:</label>
-        <br>
-        <input [(ngModel)]="meetup.time">
-      </div>
-
-      <div>
-        <label>Date:</label>
-        <br>
-        <input [(ngModel)]="meetup.date">
-      </div>
-    <button type="button" class="btn btn-primary" (click)="beginUpdatingMeetup(meetup)">Update</button>
-    <button (click)="beginDeletingMeetup(meetup)">Delete</button>
-</div>
+<app-footer></app-footer>

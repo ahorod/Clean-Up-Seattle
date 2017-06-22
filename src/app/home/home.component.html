@@ -1,3 +1,52 @@
-<p>
-  homepage works!
-</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <div class='row'>
+    <div class='col-sm-8'>
+      <h2>Messes Spots</h2>
+      <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]='zoom'
+      [disableDefaultUI]=false
+      [zoomControl]='false'>
+
+        <agm-marker *ngFor='let m of markers; let i = index'
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [markerDraggable]='m.draggable'>
+
+        <agm-info-window><strong><span (click)='clickMarker(m)'>{{m.name}}</span></strong></agm-info-window>
+
+        </agm-marker>
+      </agm-map>
+    </div><!-- map column -->
+    <div class="col-sm-4">
+      <a class="twitter-timeline"  href="https://twitter.com/search?q=clean%20up%20seattle" data-widget-id="877657421895802880">Tweets about clean up seattle</a>
+    </div>
+  </div>
+  <hr>
+  <!-- <div class="messes-list">
+    <h2>Reported Messes</h2>
+    <div class="row">
+      <div class="col-sm-4 each-card" *ngFor="let mess of messes | async">
+        <div class="card" style="width: 20rem;">
+          <img class="card-img-top" src="{{(mess)?.image}}" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">{{(mess)?.location}}</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Reported Date: </b> {{(mess)?.date}}</li>
+            <li class="list-group-item"><b>Est CleanTime: </b> {{(mess)?.completionTime}}</li>
+            <li class="list-group-item"><b>Reported By:</b>{{(mess)?.name}}</li>
+          </ul>
+          <div class="card-block">
+            <a class="btn btn-primary" (click)="renderDetail(mess)">Mess Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<app-footer></app-footer>

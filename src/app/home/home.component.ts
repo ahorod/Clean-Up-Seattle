@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
 import { Mess } from '../mess.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MessService } from '../mess.service';
+import { GeolocationService } from '../geolocation.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-home',
@@ -11,26 +11,64 @@ import { MessService } from '../mess.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  user: Observable<firebase.User>;
-  userName: any;
+  messes: FirebaseListObservable<any[]>;
+  meetups: FirebaseListObservable<any[]>;
+  zoom: number = 12;
+  lat: number = 47.6062;
+  lng: number = -122.3321;
+  result: any;
+  inputtedLat: any;
+  inputtedLng: any;
+  inputtedLocation: any;
+  markers: marker[] = [];
 
-  constructor(public afAuth: AngularFireAuth) {
-    this.user = afAuth.authState;
-  }
+  constructor(
+    private route:ActivatedRoute,
+    private router: Router,
+    private messService: MessService,
+    private geolocationService: GeolocationService
+  ) { }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
-      console.log(response);
-      this.userName = response.user.displayName;
+  ngOnInit() {
+    this.messes = this.messService.getMesses();
+    this.meetups = this.messService.getMeetups()
+
+    this.messService.getMesses().subscribe(allMesses => {
+      allMesses.forEach(mess => {
+        this.inputtedLocation = mess.location;
+
+        this.geolocationService.insertLocation(this.inputtedLocation).subscribe(response => {
+          this.inputtedLat = response.results[0].geometry.location.lat;
+          this.inputtedLng = response.results[0].geometry.location.lng;
+
+          var newMarker = {
+            name: mess.location.toUpperCase(),
+            lat: this.inputtedLat,
+            lng: this.inputtedLng,
+            draggable: false,
+            id: mess.$key
+          };
+          this.markers.push(newMarker);
+        });
+      });
     });
   }
 
-  logout() {
-    this.afAuth.auth.signOut();
+  renderDetail(clickedMess){
+    this.router.navigate(['messes', clickedMess.$key]);
   }
 
-  ngOnInit() {
-    return this.userName;
+  clickMarker(clickedMarker){
+    this.router.navigate(['messes', clickedMarker.id]);
   }
 
+}
+
+// Marker Type
+interface marker {
+  name?: string;
+  lat: number;
+  lng: number;
+  draggable: boolean;
+  id: any;
 }

@@ -31,6 +31,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
+  { path: 'home',component: HomeComponent },
   { path: 'messes-list',component: MessesListComponent },
   { path: 'about', component: AboutComponent },
   { path: 'messes/:id', component: MessDetailComponent },

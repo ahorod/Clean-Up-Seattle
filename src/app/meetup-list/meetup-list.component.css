@@ -3,3 +3,10 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+
+.edit-meetup-info {
+  margin-top: 4rem ;
+  margin-bottom: 2rem;
+  border-top: 3px double black;
+  padding-top: 2rem;
+}
