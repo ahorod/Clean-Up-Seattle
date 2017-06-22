@@ -11,6 +11,15 @@
       <p>Date: {{(mess)?.date}}<p>
 
       <p>Submitted by: {{(mess)?.name}}<p>
+        <!-- Update Mess modal trigger -->
+      <a role="button" data-toggle="modal" data-target="#EditModalLong">
+        <i class="fa fa-pencil-square-o fa-lg funct-icon" aria-hidden="true"></i>
+      </a>
+
+      <!-- Delete Mess -->
+      <a role="button" (click)="startDeletingMess(mess)">
+        <i class="fa fa-trash-o fa-lg funct-icon" aria-hidden="true"></i>
+      </a>
       <hr>
 
       <!-- Button trigger modal -->
@@ -23,16 +32,13 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle">Add New Meetup</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Add New Meetup</h3>
-                </div>
                 <br>
                 <div class="panel-body">
                   <div>
@@ -70,39 +76,69 @@
 
       <br>
       <!-- Edit Form -->
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Location </label>
-        <div class="col-10">
-          <input [(ngModel)]="mess.location">
+      <!-- Button trigger edit modal -->
+      <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#EditModalLong">
+        Edit
+      </button> -->
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="EditModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="EditModalLongTitle">Edit Mess</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="panel panel-default">
+                <br>
+                <div class="panel-body">
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Location </label>
+                    <div class="col-10">
+                      <input [(ngModel)]="mess.location">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Image url </label>
+                    <div class="col-10">
+                      <input [(ngModel)]="mess.image">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Completion Time </label>
+                    <div class="col-10">
+                      <input [(ngModel)]="mess.completionTime">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Date posted </label>
+                    <div class="col-10">
+                      <input [(ngModel)]="mess.date">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Name </label>
+                    <div class="col-10">
+                      <input [(ngModel)]="mess.name">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" (click)="startUpdatingMess(mess)"class="btn " data-dismiss="modal">Update</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Image url </label>
-        <div class="col-10">
-          <input [(ngModel)]="mess.image">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Completion Time </label>
-        <div class="col-10">
-          <input [(ngModel)]="mess.completionTime">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Date posted </label>
-        <div class="col-10">
-          <input [(ngModel)]="mess.date">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Name </label>
-        <div class="col-10">
-          <input [(ngModel)]="mess.name">
-        </div>
-      </div>
-      <button type="button" (click)="startUpdatingMess(mess)"class="btn">Update</button>
-      <button (click)="startDeletingMess(mess)">Delete</button>
-    </div>
+      </div><!--end modal-->
+
+
+    </div><!-- end column -->
     <div class='col-md-6'>
       <agm-map
       [latitude]="messLat"
