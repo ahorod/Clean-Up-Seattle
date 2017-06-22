@@ -65,10 +65,12 @@ export class MessDetailComponent implements OnInit {
   startUpdatingMess(messToUpdate){
     // console.log(messToUpdate);
     this.messService.updateMess(messToUpdate);
+
   }
   startDeletingMess(messToDelete){
     if(confirm("Are you sure you want to delete this item from the inventory?")){
       this.messService.deleteMess(messToDelete);
+      this.router.navigate(['/messes-list']);
     }
   }
 
