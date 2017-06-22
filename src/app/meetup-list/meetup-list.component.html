@@ -4,7 +4,6 @@
 <div class="meetup-list">
   <div class="meetup-list-head">
     <h1>Current MeetUp Schedule</h1>
-    <button type="button" (click)='testWeather()'>test weather</button>
   </div>
   <div class="meetup-list-body">
     <div class="row">
@@ -30,6 +29,9 @@
               <td>
                 <a (click)="editMeetup(meetup)" role="button">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+                <a [routerLink]="['/meetups/' + meetup.$key]">
+                  meetup detail
                 </a>
               </td>
             </tr>

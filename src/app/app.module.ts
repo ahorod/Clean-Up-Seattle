@@ -28,6 +28,7 @@ import { WeatherService } from './weather.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { MeetupDetailComponent } from './meetup-detail/meetup-detail.component';
 
 
 const appRoutes: Routes = [
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'mess-add', component: MessAddComponent },
   { path: 'messes/:id/meetup-form', component: MeetupFormComponent },
   { path: 'meetups', component: MeetupListComponent },
+  { path: 'meetups/:id', component: MeetupDetailComponent },
 ];
 
 @NgModule({
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     MeetupListComponent,
     NavbarComponent,
     FooterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MeetupDetailComponent
   ],
   imports: [
     BrowserModule,
