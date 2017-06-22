@@ -27,6 +27,7 @@ import { UserService } from './user.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { MeetupByMessPipe } from './meetup-by-mess.pipe';
 
 
 const appRoutes: Routes = [
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     MeetupListComponent,
     NavbarComponent,
     FooterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MeetupByMessPipe
   ],
   imports: [
     BrowserModule,

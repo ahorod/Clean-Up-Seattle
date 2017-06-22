@@ -30,6 +30,9 @@ export class MessDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.messService.getMeetups().subscribe(dataLastEmittedFromObserver => {
+     this.meetups = dataLastEmittedFromObserver;
+  });
     this.messId = this.route.snapshot.params['id'];
     this.messService.getMessesbyId(this.messId).subscribe(messFB => {
       this.mess = messFB;
